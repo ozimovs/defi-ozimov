@@ -1,0 +1,167 @@
+/* defi.ozimov.ru — общий стиль всех страниц */
+
+:root {
+  --bg:        #141414;
+  --bg-raised: #1c1c1c;
+  --line:      #2e2e2e;
+  --text:      #e9e9e9;
+  --muted:     #9a9a9a;
+  --accent:    #fbef4a;
+  --accent-2:  #e8553f;
+  --maxw:      44rem;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 1.0625rem/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "Helvetica Neue", Arial, sans-serif;
+  padding: 0 1.25rem 5rem;
+}
+
+.wrap { max-width: var(--maxw); margin: 0 auto; }
+
+/* ---- шапка ---- */
+
+.site-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding: 2.25rem 0 1.75rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+
+.site-head a.brand {
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 2px;
+}
+
+.site-head .home {
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-decoration: none;
+  margin-left: auto;
+}
+.site-head .home:hover { color: var(--accent); }
+
+/* ---- типографика ---- */
+
+h1 {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem;
+}
+
+h2 {
+  font-size: 1.375rem;
+  letter-spacing: -0.01em;
+  margin: 2.75rem 0 0.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+h3 { font-size: 1.0625rem; margin: 1.75rem 0 0.5rem; }
+
+p, ul, ol { margin: 0 0 1.15rem; }
+
+ul, ol { padding-left: 1.25rem; }
+li { margin-bottom: 0.4rem; }
+
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(251,239,74,0.35); }
+a:hover { border-bottom-color: var(--accent); }
+
+strong { color: #fff; }
+
+.lede {
+  color: var(--muted);
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 2.25rem;
+}
+
+blockquote {
+  margin: 1.5rem 0;
+  padding: 0.25rem 0 0.25rem 1.15rem;
+  border-left: 3px solid var(--accent);
+  color: var(--muted);
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+
+pre {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+pre code { background: none; border: 0; padding: 0; }
+
+hr { border: 0; border-top: 1px solid var(--line); margin: 2.5rem 0; }
+
+/* ---- таблицы ---- */
+
+.table-scroll { overflow-x: auto; margin: 0 0 1.5rem; }
+table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+th, td { text-align: left; padding: 0.6rem 0.9rem; border-bottom: 1px solid var(--line); }
+th { color: var(--muted); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* ---- список страниц на главной ---- */
+
+.index-list { list-style: none; padding: 0; margin: 0; }
+
+.index-list li { margin: 0; border-bottom: 1px solid var(--line); }
+.index-list li:last-child { border-bottom: 0; }
+
+.index-list a {
+  display: block;
+  padding: 1.1rem 0;
+  border: 0;
+  color: var(--text);
+}
+.index-list a:hover { color: var(--accent); }
+
+.index-list .t { font-weight: 600; font-size: 1.0625rem; }
+.index-list .d { color: var(--muted); font-size: 0.925rem; margin-top: 0.2rem; }
+.index-list .dt { color: #6f6f6f; font-size: 0.8rem; margin-top: 0.35rem; letter-spacing: 0.02em; }
+
+/* ---- подвал ---- */
+
+.site-foot {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.875rem;
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+.site-foot a { color: var(--muted); border-bottom-color: transparent; }
+.site-foot a:hover { color: var(--accent); }
