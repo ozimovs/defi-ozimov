@@ -38,22 +38,21 @@
   var modal = document.getElementById('modal');
   var mtitle = document.getElementById('mtitle');
   var msub = modal.querySelector('.m-sub');
-  var mform = document.getElementById('mform');
-  var mok = document.getElementById('mok');
+  var wPay = document.getElementById('w-pay');
+  var wBook = document.getElementById('w-book');
   var last = null;
 
   function open(intent){
     last = document.activeElement;
+    var booking = intent === 'Забронировать';
     mtitle.textContent = intent;
-    msub.textContent = intent === 'Забронировать'
+    msub.textContent = booking
       ? 'Оставьте контакты — закрепим за вами место и пришлём условия.'
       : 'Оставьте контакты — пришлём ссылку на оплату и доступ к программе.';
-    mform.style.display = '';
-    mok.style.display = 'none';
-    document.getElementById('form').reset();
+    wPay.style.display = booking ? 'none' : '';
+    wBook.style.display = booking ? '' : 'none';
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
-    setTimeout(function(){ var f = modal.querySelector('input'); if (f) f.focus(); }, 40);
   }
   function close(){
     modal.classList.remove('open');
@@ -71,15 +70,4 @@
     if (e.key === 'Escape' && modal.classList.contains('open')) close();
   });
 
-  document.getElementById('form').addEventListener('submit', function(e){
-    e.preventDefault();
-    var f = e.target;
-    var bad = false;
-    Array.prototype.forEach.call(f.elements, function(el){
-      if (el.required && !el.checkValidity()){ bad = true; }
-    });
-    if (bad){ f.reportValidity(); return; }
-    mform.style.display = 'none';
-    mok.style.display = '';
-  });
 })();

@@ -443,3 +443,7 @@ footer .wrap{display:flex;flex-direction:column;gap:14px;align-items:center;text
   *{animation-duration:.01ms !important;transition-duration:.01ms !important}
   .rv{opacity:1;transform:none}
 }
+
+/* GetCourse widgets in modal */
+.gc-widget{min-height:120px}
+.gc-widget iframe{width:100%!important;border:0}
